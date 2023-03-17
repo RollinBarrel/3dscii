@@ -1,0 +1,59 @@
+.fvec proj[4]
+.fvec tranScale
+.alias translation tranScale.xy
+.alias scale tranScale.zw
+.fvec charSize
+.bool xFlip, yFlip, dFlip
+
+.constf myconst(0.0, 1.0, -1.0, -0.5)
+.alias  zeros myconst.xxxx ; Vector full of zeros
+.alias  ones  myconst.yyyy ; Vector full of ones
+
+.out outpos position
+.out outtc0 texcoord0
+.out outclr color
+
+.alias inpos v0
+.alias intex v1
+.alias inchar v2
+.alias inclr v3
+
+.proc main
+    mov r0.xy, inpos
+    mul r0.xy, scale, r0
+    add r0.xy, translation, r0
+    mov r0.z, zeros
+    mov r0.w, ones
+
+    dp4 r1.x, proj[0], r0
+    dp4 r1.y, proj[1], r0
+    dp4 r1.z, proj[2], r0
+    dp4 r1.w, proj[3], r0
+
+    mov outpos, r1
+
+    mov r0, intex
+
+    ifu dFlip
+        mov r1.x, r0.x
+        mov r0.x, r0.y
+        mov r0.y, r1.x
+    .end
+    
+    mul r1, myconst.zzzz, r0
+    ifu xFlip
+        add r0.x, ones, r1.x
+    .end
+    ifu yFlip
+        add r0.y, ones, r1.y
+    .end
+
+    add r0, inchar, r0
+    mul r0, charSize, r0
+    
+    mov outtc0, r0
+    
+    mov outclr, inclr
+
+    end
+.end

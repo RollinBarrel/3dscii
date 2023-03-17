@@ -1,0 +1,67 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [],
+            "options": {
+                "env": {
+                    "THREEDSCII_DEBUG": "1"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "citra",
+            "command": "citra",
+            "args": [
+                "--gdbport=24689",
+                "./3dscii.3dsx"
+            ],
+            "type": "process",
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "none"
+        },
+        {
+            "label": "3dslink",
+            "command": "3dslink",
+            "args": [
+                "--address=192.168.34.41",
+                "./3dscii.3dsx"
+            ],
+            "type": "process",
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "none"
+        },
+        {   // doesn't work with debug launch since it waits till citra stops 
+            "label": "buildnrun",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "build",
+                "citra"
+            ],
+            "problemMatcher": []
+        },
+        {   // doesn't work with debug launch cuz 3ds rejects the connection before app can launch
+            "label": "buildnsend",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "build",
+                "3dslink"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+.fvec proj[4]
+.fvec tranScale
+.alias translation tranScale.xy
+.alias scale tranScale.zw
+.fvec zOffset
+
+.constf myconst(0.0, 1.0, -1.0, -0.5)
+.alias  zeros myconst.xxxx ; Vector full of zeros
+.alias  ones  myconst.yyyy ; Vector full of ones
+
+.out outpos position
+.out outclr color
+
+.alias inpos v0
+.alias incol v1
+
+.proc main
+    mov r0.xy, inpos
+    mul r0.xy, scale, r0
+    add r0.xy, translation, r0
+    mov r0.z, zOffset.x
+    mov r0.w, ones
+
+    dp4 r1.x, proj[0], r0
+    dp4 r1.y, proj[1], r0
+    dp4 r1.z, proj[2], r0
+    dp4 r1.w, proj[3], r0
+
+    mov outpos, r1
+
+    mov outclr, incol
+
+    end
+.end

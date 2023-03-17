@@ -1,0 +1,7 @@
+build
+sdmc
+*.3dsx
+*.smdh
+*.cia
+*.elf
+*.lst
