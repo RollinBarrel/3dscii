@@ -5,14 +5,14 @@ Homebrew software for drawing ASCII, PETSCII and other types of tile-based art o
 
 >This software is in **Beta**!  
 Keep backups turned on, save a lot!  
-If you're experiencing bugs or crashes, please leave an (link)Issue with as much information as you can!
+If you're experiencing bugs or crashes, please leave an [Issue](https://github.com/RollinBarrel/3dscii/issues) with as much information as you can!
 Thanks!
 
 
 # Installation
-Download (link)dist.zip and unarchive **its contents** to the **root** of SD card, so that you have a **3dscii** folder in the root directory
+Download [dist.zip](https://github.com/RollinBarrel/3dscii/releases/latest/download/dist.zip) and unarchive **its contents** to the **root** of SD card, so that you have a **3dscii** folder in the root directory
 
-Download the latest (link)3dscii-3dsx or (link)3dscii.cia release, and install it your preferred way
+Download the latest [3dscii-3dsx.zip](https://github.com/RollinBarrel/3dscii/releases/latest/download/3dscii-3dsx.zip) or [3dscii.cia](https://github.com/RollinBarrel/3dscii/releases/latest/download/3dscii.cia) release, and install it your preferred way
 
 # Using 3DSCII
 May be confusing (yeah)  
@@ -32,7 +32,7 @@ This repository's *playscii* folder contains *in_3dscii.py* and *out_3dscii.py* 
 
 # License and Credits
 Made by [Rollin'Barrel](https://github.com/RollinBarrel)  
-3DSCII is licensed under the (link)MIT License
+3DSCII is licensed under the [MIT License](https://github.com/RollinBarrel/3dscii/blob/main/LICENSE)
 
 Palettes and Charsets (as well as a lot of ideas :) thx JP) bundled with the software are taken from the [Playscii](http://vectorpoem.com/playscii/) [(MIT License)](https://heptapod.host/jp-lebreton/playscii/-/blob/7ea67bd9a00988002d4e6af005e97954e9b06f9d/license.txt)
 
